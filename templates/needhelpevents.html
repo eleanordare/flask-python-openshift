@@ -1,0 +1,23 @@
+<style>
+ul, form, h2 {
+  font-family: sans-serif;
+}
+</style>
+
+<h2>
+  Add requests for help
+</h2>
+
+<ul>
+{% for event in events %}
+    <li>
+        <a href="/">Event</a>
+    </li>
+{% endfor %}
+</ul>
+
+<form action="/needhelp" method="post">
+    <p><input type="date" name="Start Time">Start Time</p>
+    <p><input type="date" name="End Time">End Time</p>
+    <input type="submit" value="Add event">
+</form>
