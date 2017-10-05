@@ -1,0 +1,31 @@
+<style>
+ul, form, h2 {
+  font-family: sans-serif;
+}
+</style>
+
+<h2>
+ Offer Help 
+</h2>
+
+<h3>
+  Be part of a wonderful movement!
+</h3>
+
+<form action="/addhelp" method="post">
+    <p><input type="text" name="what"></p>
+    <p><input type="date" name="when"></p>
+    <input type="submit" value="Offer help">
+</form>
+
+<h2>
+  Already offered help
+</h2>
+
+<ul>
+{% for offer in offers %}
+   <li>
+	   What: {{ offer.what }} When: {{ offer.when }}
+   </li>
+{% endfor %}
+</ul>

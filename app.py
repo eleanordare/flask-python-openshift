@@ -21,7 +21,19 @@ class Task(db.Model):
     def __repr__(self):
         return '<Content %s>' % self.content
 
+class OfferHelp(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    what = db.Column(db.Text)
+    when = db.Column(db.Text)
 
+    def __init__(self, what, when):
+        self.what = what
+        self.when = when
+
+    def __repr__(self):
+        return '<Offer: %s | %s>' % self.what, self.when
+
+db.drop_all()
 db.create_all()
 
 
@@ -67,7 +79,6 @@ def resolve_task(task_id):
 
     db.session.commit()
     return redirect('/')
-
 
 if __name__ == '__main__':
     flaskrun(app)
